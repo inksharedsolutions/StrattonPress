@@ -4,16 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale="1.0, user-scalable=no">
     <title>@ViewBag.Title - Stratton Press: Watch Your Story</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Assets/css/fontawesome-free/css/fontawesome-all.min.css" />
     <link href="~/Assets/css/styles.css" rel="stylesheet" />
+    <link href="~/Assets/css/timeline.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="wrapper">
-        <header id="header" class="space clean">
-            <div id="logo" class="float_left">
-                <a href="index.html"><img src="~/Assets/img/stratton-logo-name-lion-3.png" alt="Alternate Text" /></a>
+<body id="top">
+    <div class="indicator">
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-padding-16 w3-container">
+
+    </div>
+    <div class="w3-container w3-padding" style="display: flex; justify-content: center; align-items: center">
+        <header>
+            <div class="float_left w3-padding-left w3-image" style="width: 50%;">
+                <a href="index.html"><img src="~/Assets/img/stratton-logo-v7-name1.png" alt="Alternate Text" style="width:15%" /></a>
             </div>
-            <nav id="navigation" class="float_right">
-                <ul class="clear">
+            <nav id="navigation" class="float_right w3-padding">
+                <ul>
                     <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="index.html">Services</a></li>
                     <li>
@@ -33,7 +50,49 @@
             </nav>
         </header>
     </div>
-        @RenderBody()
+    @RenderBody()
+
+    <script type="text/javascript">
+
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+    </script>
+
+
+    <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-white", "");
+      }
+      x[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " w3-white";
+    }
+    </script>
 </body>
 </html>
  
